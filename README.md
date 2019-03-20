@@ -1,7 +1,7 @@
 # Transformer-TTS
-A Pytorch Implementation of [Neural Speech Synthesis with Transformer Network](https://arxiv.org/abs/1809.08895)
-This model can be trained about 3 to 4 times faster than the well known seq2seq model like tacotron, and the quality of synthesized speech is almost the same. It was confirmed through experiment that it took about 0.5 second per step.
-I did not use the wavenet vocoder but learned the post network using CBHG model of tacotron and converted the spectrogram into raw wave using griffin-lim algorithm.
+* A Pytorch Implementation of [Neural Speech Synthesis with Transformer Network](https://arxiv.org/abs/1809.08895)
+* This model can be trained about 3 to 4 times faster than the well known seq2seq model like tacotron, and the quality of synthesized speech is almost the same. It was confirmed through experiment that it took about 0.5 second per step.
+* I did not use the wavenet vocoder but learned the post network using CBHG model of tacotron and converted the spectrogram into raw wave using griffin-lim algorithm.
 
 <img src="png/model.png">
 
@@ -14,10 +14,10 @@ I did not use the wavenet vocoder but learned the post network using CBHG model 
    	```
 
 ## Data
-I used LJSpeech dataset which consists of pairs of text script and wav files. The complete dataset (13,100 pairs) can be downloaded [here](https://keithito.com/LJ-Speech-Dataset/). I referred https://github.com/keithito/tacotron and https://github.com/Kyubyong/dc_tts for the preprocessing code.
+* I used LJSpeech dataset which consists of pairs of text script and wav files. The complete dataset (13,100 pairs) can be downloaded [here](https://keithito.com/LJ-Speech-Dataset/). I referred https://github.com/keithito/tacotron and https://github.com/Kyubyong/dc_tts for the preprocessing code.
 
 ## Attention plots
-A diagonal alignment appeared after about 15k steps. The attention plots below are at 160k steps. Plots represent the multihead attention of all layers. In this experiment, h=4 is used for three attention layers. Therefore, 12 attention plots were drawn for each of the encoder, decoder and encoder-decoder.
+* A diagonal alignment appeared after about 15k steps. The attention plots below are at 160k steps. Plots represent the multihead attention of all layers. In this experiment, h=4 is used for three attention layers. Therefore, 12 attention plots were drawn for each of the encoder, decoder and encoder-decoder. With the exception of the decoder, only a few multiheads showed diagonal alignment.
 
 ### Self Attention encoder
 <img src="png/attention_encoder.gif" height="200">
@@ -30,15 +30,15 @@ A diagonal alignment appeared after about 15k steps. The attention plots below a
 
 ## Learning curves & Alphas
 <img src="png/training_loss.png">
-I used Noam style warmup and decay as same as [Tacotron](https://github.com/Kyubyong/tacotron)
+* I used Noam style warmup and decay as same as [Tacotron](https://github.com/Kyubyong/tacotron)
 
 <img src="png/alphas.png">
-The alpha value for the scaled position encoding is different from the thesis. In the paper, the alpha value of the encoder is increased to 4, whereas in the present experiment, it slightly increased at the beginning and then decreased continuously. The decoder alpha has steadily decreased since the beginning.
+* The alpha value for the scaled position encoding is different from the thesis. In the paper, the alpha value of the encoder is increased to 4, whereas in the present experiment, it slightly increased at the beginning and then decreased continuously. The decoder alpha has steadily decreased since the beginning.
 
 ## Experimental notes
 
 ## Generated Samples
-The above plot is the predicted mel, and the bottom is the ground truth.
+* The above plot is the predicted mel, and the bottom is the ground truth.
 <img src="png/mel_pred" height="200">
 <img src="png/mel_original" height="200">
 
