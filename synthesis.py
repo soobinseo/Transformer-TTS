@@ -7,6 +7,7 @@ import numpy as np
 from network import ModelPostNet, Model
 from collections import OrderedDict
 from tqdm import tqdm
+import argparse
 
 def load_checkpoint(step, model_name="transformer"):
     state_dict = t.load('./checkpoint/checkpoint_%s_%d.pth.tar'% (model_name, step))   
@@ -17,14 +18,12 @@ def load_checkpoint(step, model_name="transformer"):
 
     return new_state_dict
 
-def synthesis(text):
+def synthesis(text, args):
     m = Model()
     m_post = ModelPostNet()
 
-    m.load_state_dict(load_checkpoint(160000, "transformer"))
-    m_post.load_state_dict(load_checkpoint(100000, "postnet"))
-
-    max_len = 400
+    m.load_state_dict(load_checkpoint(args.restore_step1, "transformer"))
+    m_post.load_state_dict(load_checkpoint(args.restore_step2, "postnet"))
 
     text = np.asarray(text_to_sequence(text, [hp.cleaners]))
     text = t.LongTensor(text).unsqueeze(0)
@@ -38,7 +37,7 @@ def synthesis(text):
     m.train(False)
     m_post.train(False)
     
-    pbar = tqdm(range(max_len))
+    pbar = tqdm(range(args.max_len))
     with t.no_grad():
         for i in pbar:
             pos_mel = t.arange(1,mel_input.size(1)+1).unsqueeze(0).cuda()
@@ -51,4 +50,11 @@ def synthesis(text):
     write(hp.sample_path + "/test.wav", hp.sr, wav)
     
 if __name__ == '__main__':
-    synthesis("This experiment was so difficult.")
+    
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--restore_step1', type=int, help='Global step to restore checkpoint', default=172000)
+    parser.add_argument('--restore_step2', type=int, help='Global step to restore checkpoint', default=100000)
+    parser.add_argument('--max_len', type=int, help='Global step to restore checkpoint', default=400)
+
+    args = parser.parse_args()
+    synthesis("Transformer model is so fast!",args)
