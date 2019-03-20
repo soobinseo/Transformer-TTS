@@ -74,9 +74,6 @@
 ## Generate TTS wav file
   * STEP 1. Run `synthesis.py`. Make sure the restore step. 
 
-## Samples
-  * You can check the generated samples in 'samples/' directory.
-
 ## Reference
   * Keith ito: https://github.com/keithito/tacotron
   * Kyubyong Park: https://github.com/Kyubyong/dc_tts
