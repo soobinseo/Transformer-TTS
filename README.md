@@ -44,7 +44,8 @@
 4. **It was very important to concatenate the input and context vectors in the Attention mechanism.**
 
 ## Generated Samples
-* You can check some generated samples below. All samples are step at 160k.
+* You can check some generated samples below. All samples are step at 160k, so I think the model is not converged yet. This model seems to be lower performance in long sentences.
+
     * [sample1](https://soundcloud.com/ksrbpbmcxrzu/160k-0)
     * [sample2](https://soundcloud.com/ksrbpbmcxrzu/160k_sample_1)
     * [sample3](https://soundcloud.com/ksrbpbmcxrzu/160k_sample_2)
