@@ -38,8 +38,15 @@
 <img src="png/alphas.png">
 
 ## Experimental notes
+1. **The learning rate is an important parameter for training.** With initial learning rate of 0.001 and exponentially decaying doesn't work.
+2. **The gradient clipping is also an important parameter for training.** I clipped the gradient with norm value 1.
+3. With the stop token loss, the model did not training.
+4. **It was very important to concatenate the input and context vectors in the Attention mechanism.**
 
 ## Generated Samples
+* You can check some generated samples below.
+  *
+  *
 * The above plot is the predicted mel, and the bottom is the ground truth.
 <img src="png/mel_pred.png" width="800">
 <img src="png/mel_original.png" width="800">
