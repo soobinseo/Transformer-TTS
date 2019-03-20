@@ -17,7 +17,7 @@ I did not use the wavenet vocoder but learned the post network using CBHG model 
 I used LJSpeech dataset which consists of pairs of text script and wav files. The complete dataset (13,100 pairs) can be downloaded [here](https://keithito.com/LJ-Speech-Dataset/). I referred https://github.com/keithito/tacotron and https://github.com/Kyubyong/dc_tts for the preprocessing code.
 
 ## Attention plots
-A diagonal alignment appeared after about 15k steps. The attention plots below are at 160k steps.
+A diagonal alignment appeared after about 15k steps. The attention plots below are at 160k steps. Plots represent the multihead attention of all layers. In this experiment, h=4 is used for three attention layers. Therefore, 12 attention plots were drawn for each of the encoder, decoder and encoder-decoder.
 
 ### Self Attention encoder
 <img src="png/attention_encoder.gif" height="200">
@@ -38,6 +38,9 @@ The alpha value for the scaled position encoding is different from the thesis. I
 ## Experimental notes
 
 ## Generated Samples
+The above plot is the predicted mel, and the bottom is the ground truth.
+<img src="png/mel_pred" height="200">
+<img src="png/mel_original" height="200">
 
 ## File description
   * `hyperparams.py` includes all hyper parameters that are needed.
