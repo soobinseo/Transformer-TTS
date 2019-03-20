@@ -26,7 +26,7 @@ A diagonal alignment appeared after about 15k steps. The attention plots below a
 <img src="png/attention_decoder.gif" height="200">
 
 ### Attention encoder-decoder
-<img src="png/attention.gif" height="200">
+<img src="png/attention.gif" height="00">
 
 ## Learning curves & Alphas
 <img src="png/training_loss.png">
