@@ -21,8 +21,8 @@ def synthesis(text):
     m = Model()
     m_post = ModelPostNet()
 
-    m.load_state_dict(load_checkpoint(120000, "transformer"))
-    m_post.load_state_dict(load_checkpoint(80000, "postnet"))
+    m.load_state_dict(load_checkpoint(160000, "transformer"))
+    m_post.load_state_dict(load_checkpoint(100000, "postnet"))
 
     max_len = 400
 
@@ -51,4 +51,4 @@ def synthesis(text):
     write(hp.sample_path + "/test.wav", hp.sr, wav)
     
 if __name__ == '__main__':
-    synthesis("My name is Soobin Suh.")
+    synthesis("This experiment was so difficult.")
