@@ -45,7 +45,9 @@
 
 ## Generated Samples
 * You can check some generated samples below. All samples are step at 160k.
-(sample1)[https://soundcloud.com/ksrbpbmcxrzu/160k-0], (sample2)[https://soundcloud.com/ksrbpbmcxrzu/160k_sample_1], (sample3)[https://soundcloud.com/ksrbpbmcxrzu/160k_sample_2]
+    * [sample1](https://soundcloud.com/ksrbpbmcxrzu/160k-0)
+    * [sample2](https://soundcloud.com/ksrbpbmcxrzu/160k_sample_1)
+    * [sample3](https://soundcloud.com/ksrbpbmcxrzu/160k_sample_2)
 
 * The first plot is the predicted mel spectrogram, and the second is the ground truth.
 <img src="png/mel_pred.png" width="800">
