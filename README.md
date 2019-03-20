@@ -20,13 +20,13 @@ I used LJSpeech dataset which consists of pairs of text script and wav files. Th
 A diagonal alignment appeared after about 15k steps. The attention plots below are at 160k steps.
 
 ### Self Attention encoder
-<img src="png/attention_encoder.gif">
+<img src="png/attention_encoder.gif" height="200">
 
 ### Self Attention decoder
-<img src="png/attention_decoder.gif">
+<img src="png/attention_decoder.gif" height="200">
 
 ### Attention encoder-decoder
-<img src="png/attention.gif">
+<img src="png/attention.gif" height="200">
 
 ## Learning curves & Alphas
 <img src="png/training_loss.png">
