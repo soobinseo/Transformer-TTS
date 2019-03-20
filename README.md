@@ -41,8 +41,8 @@
 
 ## Generated Samples
 * The above plot is the predicted mel, and the bottom is the ground truth.
-<img src="png/mel_pred.png" height="200">
-<img src="png/mel_original.png" height="200">
+<img src="png/mel_pred.png" width="800">
+<img src="png/mel_original.png" width="800">
 
 ## File description
   * `hyperparams.py` includes all hyper parameters that are needed.
