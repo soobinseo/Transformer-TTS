@@ -1,0 +1,12 @@
+.DS_Store
+*.pyc
+checkpoint*
+assets/
+.ipynb_checkpoints/
+.idea/
+data/
+._.DS_Store
+runs/
+test.ipynb
+synthesis.ipynb
+log*
