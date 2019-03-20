@@ -29,18 +29,20 @@
 <img src="png/attention.gif" height="200">
 
 ## Learning curves & Alphas
-<img src="png/training_loss.png">
 * I used Noam style warmup and decay as same as [Tacotron](https://github.com/Kyubyong/tacotron)
 
-<img src="png/alphas.png">
+<img src="png/training_loss.png">
+
 * The alpha value for the scaled position encoding is different from the thesis. In the paper, the alpha value of the encoder is increased to 4, whereas in the present experiment, it slightly increased at the beginning and then decreased continuously. The decoder alpha has steadily decreased since the beginning.
+
+<img src="png/alphas.png">
 
 ## Experimental notes
 
 ## Generated Samples
 * The above plot is the predicted mel, and the bottom is the ground truth.
-<img src="png/mel_pred" height="200">
-<img src="png/mel_original" height="200">
+<img src="png/mel_pred.png" height="200">
+<img src="png/mel_original.png" height="200">
 
 ## File description
   * `hyperparams.py` includes all hyper parameters that are needed.
