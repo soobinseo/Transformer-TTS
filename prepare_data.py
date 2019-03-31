@@ -3,7 +3,7 @@ import pandas as pd
 from torch.utils.data import Dataset, DataLoader
 import os
 from utils import get_spectrograms
-import hyperparams
+import hyperparams as hp
 import librosa
 
 class PrepareDataset(Dataset):
