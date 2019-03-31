@@ -42,7 +42,7 @@ def synthesis(text, args):
         for i in pbar:
             pos_mel = t.arange(1,mel_input.size(1)+1).unsqueeze(0).cuda()
             mel_pred, postnet_pred, attn, stop_token, _, attn_dec = m.forward(text, mel_input, pos_text, pos_mel)
-            mel_input = t.cat([t.zeros([1,1, 80]).cuda(),postnet_pred], dim=1)
+            mel_input = t.cat([mel_input, postnet_pred[:,-1:,:]], dim=1)
 
         mag_pred = m_post.forward(postnet_pred)
         
