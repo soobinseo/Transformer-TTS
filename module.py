@@ -102,9 +102,9 @@ class EncoderPrenet(nn.Module):
     def forward(self, input_):
         input_ = self.embed(input_) 
         input_ = input_.transpose(1, 2) 
-        input_ = self.dropout1(self.batch_norm1(t.relu(self.conv1(input_)))) 
-        input_ = self.dropout2(self.batch_norm2(t.relu(self.conv2(input_)))) 
-        input_ = self.dropout3(self.batch_norm3(t.relu(self.conv3(input_)))) 
+        input_ = self.dropout1(t.relu(self.batch_norm1(self.conv1(input_)))) 
+        input_ = self.dropout2(t.relu(self.batch_norm2(self.conv2(input_)))) 
+        input_ = self.dropout3(t.relu(self.batch_norm3(self.conv3(input_)))) 
         input_ = input_.transpose(1, 2) 
         input_ = self.projection(input_) 
 
@@ -132,11 +132,12 @@ class FFN(nn.Module):
         x = self.w_2(t.relu(self.w_1(x))) 
         x = x.transpose(1, 2) 
 
+
         # residual connection
         x = x + input_ 
 
         # dropout
-        x = self.dropout(x) 
+        # x = self.dropout(x) 
 
         # layer normalization
         x = self.layer_norm(x) 
@@ -214,7 +215,7 @@ class MultiheadAttention(nn.Module):
             attn = attn * query_mask
 
         # Dropout
-        attn = self.attn_dropout(attn)
+        # attn = self.attn_dropout(attn)
         
         # Get Context Vector
         result = t.bmm(attn, value)
@@ -285,8 +286,9 @@ class Attention(nn.Module):
         result = self.final_linear(result)
 
         # Residual dropout & connection
-        result = self.residual_dropout(result)
         result = result + decoder_input
+
+        # result = self.residual_dropout(result)
 
         # Layer normalization
         result = self.layer_norm_1(result)
