@@ -1,6 +1,6 @@
 falcon==1.2.0
 inflect==0.2.5
-librosa==0.5.1
+librosa==0.7.1
 scipy==1.0.0
 Unidecode==0.4.21
 pandas
