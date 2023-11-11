@@ -31,8 +31,8 @@ class LJDatasets(Dataset):
         return len(self.landmarks_frame)
 
     def __getitem__(self, idx):
-        wav_name = os.path.join(self.root_dir, self.landmarks_frame.ix[idx, 0]) + '.wav'
-        text = self.landmarks_frame.ix[idx, 1]
+        wav_name = os.path.join(self.root_dir, self.landmarks_frame.loc[idx, 0]) + '.wav'
+        text = self.landmarks_frame.loc[idx, 1]
 
         text = np.asarray(text_to_sequence(text, [hp.cleaners]), dtype=np.int32)
         mel = np.load(wav_name[:-4] + '.pt.npy')
@@ -62,7 +62,7 @@ class PostDatasets(Dataset):
         return len(self.landmarks_frame)
 
     def __getitem__(self, idx):
-        wav_name = os.path.join(self.root_dir, self.landmarks_frame.ix[idx, 0]) + '.wav'
+        wav_name = os.path.join(self.root_dir, self.landmarks_frame.loc[idx, 0]) + '.wav'
         mel = np.load(wav_name[:-4] + '.pt.npy')
         mag = np.load(wav_name[:-4] + '.mag.npy')
         sample = {'mel':mel, 'mag':mag}
